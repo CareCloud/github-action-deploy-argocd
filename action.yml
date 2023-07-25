@@ -73,14 +73,14 @@ inputs:
   synchronously:
     description: "Wait until ArgoCD successfully apply the changes"
     default: 'false'
-  check-retry-count:
+  deployment-check-retry-count:
     description: 'Check retry count (for synchronously mode)'
     required: false
-    default: "12"
-  check-retry-interval:
+    default: "100"
+  deployment-check-retry-interval:
     description: 'Check retry interval (in seconds) (for synchronously mode)'
     required: false
-    default: "10"
+    default: "3"
 outputs:
   webapp-url:
     description: "Web Application url"
@@ -337,8 +337,8 @@ runs:
       with:
         repository: ${{ inputs.repository }}
         sha: ${{ inputs.ref }}
-        status: "continuous-delivery/${{ inputs.namespace }}.${{ inputs.application }}"
+        status: "continuous-delivery/${{ inputs.namespace }}.${{ inputs.app-name }}"
         expected_state: "success"
         token: ${{ inputs.github-pat }}
-        check-retry-count: ${{ inputs.check-retry-count }}
-        check-retry-interval: ${{ inputs.check-retry-interval }}   
+        check-retry-count: ${{ inputs.deployment-check-retry-count }}
+        check-retry-interval: ${{ inputs.deployment-check-retry-interval }}     
