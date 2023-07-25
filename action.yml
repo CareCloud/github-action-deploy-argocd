@@ -76,7 +76,7 @@ inputs:
   check-retry-count:
     description: 'Check retry count (for synchronously mode)'
     required: false
-    default: "5"
+    default: "12"
   check-retry-interval:
     description: 'Check retry interval (in seconds) (for synchronously mode)'
     required: false
