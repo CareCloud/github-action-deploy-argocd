@@ -102,8 +102,8 @@ runs:
       uses: mamezou-tech/setup-helmfile@v1.2.0
       if: ${{ inputs.operation == 'deploy' }}
       with:
-        helmfile-version: v0.148.1
-        helm-version: v3.10.2
+        helmfile-version: v0.157.0 # https://github.com/helmfile/helmfile/releases
+        helm-version: v3.13.0 # https://github.com/helm/helm/releases
         install-kubectl: false
 
     - id: destination
