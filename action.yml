@@ -332,7 +332,7 @@ runs:
           
           popd
 
-    - uses: cloudposse/github-action-wait-commit-status@0.2.0
+    - uses: carecloud/github-action-wait-commit-status@main
       if: ${{ inputs.synchronously == 'true' && inputs.operation == 'deploy' }}
       with:
         repository: ${{ inputs.repository }}
