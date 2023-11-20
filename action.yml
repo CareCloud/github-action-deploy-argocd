@@ -84,6 +84,9 @@ inputs:
   deployment-check-app-id:
     description: 'The Github App ID used for authentication when checking for deployment status'
     required: false
+  deployment-check-app-installation-id:
+    description: 'The Github App Instance ID used for authentication when checking for deployment status'
+    required: false
   deployment-check-app-private-key:
     description: 'The Github App private key used for authentication when checking for deployment status'
     required: false
@@ -346,6 +349,7 @@ runs:
         status: "continuous-delivery/${{ inputs.namespace }}.${{ inputs.app-name }}"
         expected_state: "success"
         app-id: ${{ inputs.deployment-check-app-id }}
+        app-installation-id: ${{ inputs.deployment-check-app-installation-id }}
         app-private-key: ${{ inputs.deployment-check-app-private-key }}
         token: ${{ inputs.github-pat }}
         check-retry-count: ${{ inputs.deployment-check-retry-count }}
