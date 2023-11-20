@@ -81,6 +81,12 @@ inputs:
     description: 'Check retry interval (in seconds) (for synchronously mode)'
     required: false
     default: "30"
+  deployment-check-app-id:
+    description: 'The Github App ID used for authentication when checking for deployment status'
+    required: true
+  deployment-check-app-private-key:
+    description: 'The Github App private key used for authentication when checking for deployment status'
+    required: true
 outputs:
   webapp-url:
     description: "Web Application url"
@@ -339,7 +345,7 @@ runs:
         sha: ${{ inputs.ref }}
         status: "continuous-delivery/${{ inputs.namespace }}.${{ inputs.app-name }}"
         expected_state: "success"
-        app-id: ${{ vars.CCH_DEPLOYMENT_STATUS_APP_ID }}
-        app-private-key: ${{ secrets.CCH_DEPLOYMENT_STATUS_APP_PRIVATE_KEY }}
+        app-id: ${{ inputs.deployment-check-app-id }}
+        app-private-key: ${{ inputs.deployment-check-app-private-key }}
         check-retry-count: ${{ inputs.deployment-check-retry-count }}
         check-retry-interval: ${{ inputs.deployment-check-retry-interval }}     
