@@ -76,11 +76,11 @@ inputs:
   deployment-check-retry-count:
     description: 'Check retry count (for synchronously mode)'
     required: false
-    default: "100"
+    default: "30"
   deployment-check-retry-interval:
     description: 'Check retry interval (in seconds) (for synchronously mode)'
     required: false
-    default: "3"
+    default: "30"
 outputs:
   webapp-url:
     description: "Web Application url"
