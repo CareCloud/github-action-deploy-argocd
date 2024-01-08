@@ -294,12 +294,12 @@ runs:
           namespace: ${{ inputs.namespace }}
           manifests: ${{ steps.config.outputs.path }}/manifests
 
-    - name: Push to Github
+    - name: Push to GitHub
       uses: nick-fields/retry@v2
       id: git
       with:
         timeout_minutes: 1
-        max_attempts: 4
+        max_attempts: 100
         shell: bash
         command: |-
           set -e
